@@ -145,6 +145,9 @@ function es_action() {
                 kill $ES_PID
                 wait_forpid $ES_PID
                 exit
+            else
+                shutdown -r now
+                exit
             fi
         ;;
 
@@ -156,6 +159,9 @@ function es_action() {
                 chown pi:pi /tmp/es-shutdown
                 kill $ES_PID
                 wait_forpid $ES_PID
+                exit
+            else
+                shutdown -P now
                 exit
             fi
         ;;
